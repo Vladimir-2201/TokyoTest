@@ -18,7 +18,7 @@
                 <td style="word-wrap: break-word">
                     @Html.DisplayFor(modelItem => item.OrderText)
                 </td>
-                <td>
+                <td class="col-1">
                     <form asp-action="Delete" enctype="application/x-www-form-urlencoded" method="post">
                         <input type="hidden" asp-for="@item.Id" name="Id" id="Id" />
                         <input class="btn btn-danger" type="submit" value="Удалить" />

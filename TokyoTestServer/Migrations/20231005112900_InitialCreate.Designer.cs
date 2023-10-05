@@ -11,7 +11,7 @@ using TokyoTestServer.Data;
 namespace TokyoTestServer.Migrations
 {
     [DbContext(typeof(TokyoTestServerContext))]
-    [Migration("20231005091548_InitialCreate")]
+    [Migration("20231005112900_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
