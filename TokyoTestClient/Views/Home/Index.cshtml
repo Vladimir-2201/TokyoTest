@@ -10,16 +10,16 @@
     <button class="btn btn-primary" onclick="location.href='@Url.RouteUrl(new { controller = "Home", action = "Index"})'">Обновить список</button>
 </div>
 
-<table class="table">
+<table class="table table-hover">
     <tbody>
         @foreach (var item in Model)
         {
-            <tr class="text-center align-middle">
-                <td>
-                    @Html.DisplayFor(modelItem => item.Title)
+            <tr class="text-start align-middle">
+                <td style="word-wrap: break-word">
+                    @Html.DisplayFor(modelItem => item.OrderText)
                 </td>
                 <td>
-                    <form asp-action="Delete" enctype="application/json" method="post">
+                    <form asp-action="Delete" enctype="application/x-www-form-urlencoded" method="post">
                         <input type="hidden" asp-for="@item.Id" name="Id" id="Id" />
                         <input class="btn btn-danger" type="submit" value="Удалить" />
                     </form>

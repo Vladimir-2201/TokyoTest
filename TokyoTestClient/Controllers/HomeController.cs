@@ -9,6 +9,7 @@ namespace TokyoTestClient.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private static readonly HttpClient client = new HttpClient();
+        private readonly string host = "http://localhost:5001/";
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -17,7 +18,7 @@ namespace TokyoTestClient.Controllers
 
         public async Task<IActionResult> Index()
         {
-            using HttpResponseMessage response = await client.GetAsync("http://localhost:5001/api/Orders");
+            using HttpResponseMessage response = await client.GetAsync($"{host}api/Orders");
             var jsonResponse = await response.Content.ReadAsStringAsync();
             var order = JsonConvert.DeserializeObject<List<OrderModel>>(jsonResponse)!;
             return View(order);
@@ -32,7 +33,7 @@ namespace TokyoTestClient.Controllers
         public async Task<IActionResult> Create(OrderModel order)
         {
             JsonContent content = JsonContent.Create(order);
-            using var response = await client.PostAsync("http://localhost:5001/api/Orders", content);
+            using var response = await client.PostAsync($"{host}api/Orders", content);
             return RedirectToAction(nameof(Index));
         }
 
@@ -40,8 +41,7 @@ namespace TokyoTestClient.Controllers
         [HttpPost]
         public async Task<IActionResult> Delete(int id)
         {
-            string url = "http://localhost:5001/api/Orders/" + id.ToString();
-            using var response = await client.DeleteAsync(url);
+            using var response = await client.DeleteAsync($"{host}api/Orders/{id}");
             return RedirectToAction(nameof(Index));
         }
 

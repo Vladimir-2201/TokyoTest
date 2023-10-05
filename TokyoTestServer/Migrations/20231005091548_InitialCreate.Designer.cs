@@ -11,7 +11,7 @@ using TokyoTestServer.Data;
 namespace TokyoTestServer.Migrations
 {
     [DbContext(typeof(TokyoTestServerContext))]
-    [Migration("20231005064635_InitialCreate")]
+    [Migration("20231005091548_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -32,7 +32,7 @@ namespace TokyoTestServer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Title")
+                    b.Property<string>("OrderText")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

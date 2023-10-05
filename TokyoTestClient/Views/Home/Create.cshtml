@@ -1,21 +1,19 @@
 ﻿@model OrderModel
 
 @{
-    ViewData["Title"] = "Добавить";
+    ViewData["Title"] = "Добавить заказ";
 }
 
-<h1>Добавить</h1>
+<h1>Добавить заказ</h1>
 
-<h4>Заказ</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create" enctype="application/json" method="post">
+        <form asp-action="Create" enctype="application/x-www-form-urlencoded" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="mb-3">
-                <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger"></span>
+                <textarea asp-for="OrderText" class="form-control" placeholder="Введите текст заказа" style="resize: none; width: 400px; height: 300px"></textarea>
+                <span asp-validation-for="OrderText" class="text-danger"></span>
             </div>
             <div class="mb-3">
                 <input type="submit" value="Добавить" class="btn btn-primary" />
