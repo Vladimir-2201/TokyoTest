@@ -19,8 +19,8 @@ namespace TokyoTestClient.Controllers
         public async Task<IActionResult> Index()
         {
             using HttpResponseMessage response = await client.GetAsync($"{host}api/Orders");
-            var jsonResponse = await response.Content.ReadAsStringAsync();
-            var order = JsonConvert.DeserializeObject<List<OrderModel>>(jsonResponse)!;
+            string jsonResponse = await response.Content.ReadAsStringAsync();
+            List<OrderModel> order = JsonConvert.DeserializeObject<List<OrderModel>>(jsonResponse)!;
             return View(order);
         }
 
@@ -33,7 +33,7 @@ namespace TokyoTestClient.Controllers
         public async Task<IActionResult> Create(OrderModel order)
         {
             JsonContent content = JsonContent.Create(order);
-            using var response = await client.PostAsync($"{host}api/Orders", content);
+            using HttpResponseMessage response = await client.PostAsync($"{host}api/Orders", content);
             return RedirectToAction(nameof(Index));
         }
 
@@ -41,7 +41,7 @@ namespace TokyoTestClient.Controllers
         [HttpPost]
         public async Task<IActionResult> Delete(int id)
         {
-            using var response = await client.DeleteAsync($"{host}api/Orders/{id}");
+            using HttpResponseMessage response = await client.DeleteAsync($"{host}api/Orders/{id}");
             return RedirectToAction(nameof(Index));
         }
 
