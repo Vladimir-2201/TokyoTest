@@ -1,0 +1,30 @@
+﻿@model List<OrderModel>
+@{
+    ViewData["Title"] = "Заказы";
+}
+
+<h1>Заказы</h1>
+
+<div class="m-2">
+    <button class="btn btn-success" onclick="location.href='@Url.RouteUrl(new { controller = "Home", action = "Create"})'">Добавить</button>
+    <button class="btn btn-primary" onclick="location.href='@Url.RouteUrl(new { controller = "Home", action = "Index"})'">Обновить список</button>
+</div>
+
+<table class="table">
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="text-center align-middle">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    <form asp-action="Delete" enctype="application/json" method="post">
+                        <input type="hidden" asp-for="@item.Id" name="Id" id="Id" />
+                        <input class="btn btn-danger" type="submit" value="Удалить" />
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
