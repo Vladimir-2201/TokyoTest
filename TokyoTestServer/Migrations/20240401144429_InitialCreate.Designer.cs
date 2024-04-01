@@ -10,8 +10,8 @@ using TokyoTestServer.Data;
 
 namespace TokyoTestServer.Migrations
 {
-    [DbContext(typeof(TokyoTestServerContext))]
-    [Migration("20231005130638_InitialCreate")]
+    [DbContext(typeof(TokyoTestDBContext))]
+    [Migration("20240401144429_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -24,7 +24,7 @@ namespace TokyoTestServer.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("TokyoTestServer.Order", b =>
+            modelBuilder.Entity("TokyoTestServer.Models.Order", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -38,7 +38,7 @@ namespace TokyoTestServer.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Order");
+                    b.ToTable("Orders");
                 });
 #pragma warning restore 612, 618
         }

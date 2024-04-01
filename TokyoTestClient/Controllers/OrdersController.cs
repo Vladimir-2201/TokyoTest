@@ -18,10 +18,12 @@ public class OrdersController(ILogger<OrdersController> logger) : Controller
     /// Логгер
     /// </summary>
     private readonly ILogger<OrdersController> _logger = logger;
+
     /// <summary>
     /// HTTP-клиент
     /// </summary>
     private static readonly HttpClient client = new();
+
     /// <summary>
     /// Адрес сервера
     /// </summary>

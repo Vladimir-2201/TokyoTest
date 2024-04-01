@@ -2,7 +2,7 @@
 using TokyoTestServer.Data;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddDbContext<TokyoTestServerContext>(options =>
+builder.Services.AddDbContext<TokyoTestDBContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("TokyoTestServerContext") ?? throw new InvalidOperationException("Connection string 'TokyoTestServerContext' not found.")));
 
 // Add services to the container.
