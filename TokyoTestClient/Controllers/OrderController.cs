@@ -8,12 +8,16 @@ namespace TokyoTestClient.Controllers;
 /// <summary>
 /// Контроллер заказов
 /// </summary>
-public class OrderController : Controller
+/// <remarks>
+/// Инициализирует экземпляр класса <see cref="OrderController"/>
+/// </remarks>
+/// <param name="logger">Логгер</param>
+public class OrderController(ILogger<OrderController> logger) : Controller
 {
     /// <summary>
     /// Логгер
     /// </summary>
-    private readonly ILogger<OrderController> _logger;
+    private readonly ILogger<OrderController> _logger = logger;
     /// <summary>
     /// HTTP-клиент
     /// </summary>
@@ -22,15 +26,6 @@ public class OrderController : Controller
     /// Адрес сервера
     /// </summary>
     private readonly string host = "http://localhost:5001/";
-
-    /// <summary>
-    /// Инициализирует экземпляр класса <see cref="OrderController"/>
-    /// </summary>
-    /// <param name="logger">Логгер</param>
-    public OrderController(ILogger<OrderController> logger)
-    {
-        _logger = logger;
-    }
 
     /// <summary>
     /// Получение/отображение заказов
