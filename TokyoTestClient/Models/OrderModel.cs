@@ -1,10 +1,17 @@
-﻿namespace TokyoTestClient
-{
-    public class OrderModel
-    {
-        public int Id { get; set; }
+﻿namespace TokyoTestClient;
 
-        //required чтоб убрать предупреждение CS8618, также можно было использовать атрибут [Required] или сделать тип nullable
-        public required string OrderText { get; set; }
-    }
+/// <summary>
+/// Заказ
+/// </summary>
+public class OrderModel
+{
+    /// <summary>
+    /// ID заказа
+    /// </summary>
+    public int Id { get; set; }
+
+    /// <summary>
+    /// Текст заказа
+    /// </summary>
+    public required string OrderText { get; set; }
 }

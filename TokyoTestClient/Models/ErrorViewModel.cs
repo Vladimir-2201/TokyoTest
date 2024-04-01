@@ -1,9 +1,17 @@
-namespace TokyoTestClient.Models
-{
-    public class ErrorViewModel
-    {
-        public string? RequestId { get; set; }
+namespace TokyoTestClient.Models;
 
-        public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
-    }
+/// <summary>
+/// Ошибка (стандартная модель)
+/// </summary>
+public class ErrorViewModel
+{
+    /// <summary>
+    /// ID запроса
+    /// </summary>
+    public string? RequestId { get; set; }
+
+    /// <summary>
+    /// Отображать ID запроса
+    /// </summary>
+    public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
 }

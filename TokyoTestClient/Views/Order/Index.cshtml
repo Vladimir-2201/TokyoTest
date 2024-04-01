@@ -6,8 +6,8 @@
 <h1>Заказы</h1>
 
 <div class="m-2">
-    <button class="btn btn-success" onclick="location.href='@Url.RouteUrl(new { controller = "Home", action = "Create"})'">Добавить</button>
-    <button class="btn btn-primary" onclick="location.href='@Url.RouteUrl(new { controller = "Home", action = "Index"})'">Обновить список</button>
+    <button class="btn btn-success" onclick="location.href='@Url.RouteUrl(new { controller = "Order", action = "Create"})'">Добавить</button>
+    <button class="btn btn-primary" onclick="location.href='@Url.RouteUrl(new { controller = "Order", action = "Index"})'">Обновить список</button>
 </div>
 
 <table class="table table-hover">
@@ -19,7 +19,7 @@
                     @Html.DisplayFor(modelItem => item.OrderText)
                 </td>
                 <td class="col-1">
-                    <form asp-action="Delete" enctype="application/x-www-form-urlencoded" method="post">
+                    <form asp-action="Delete" method="post">
                         <input type="hidden" asp-for="@item.Id" name="Id" id="Id" />
                         <input class="btn btn-danger" type="submit" value="Удалить" />
                     </form>
