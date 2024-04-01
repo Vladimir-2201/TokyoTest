@@ -9,15 +9,15 @@ namespace TokyoTestClient.Controllers;
 /// Контроллер заказов
 /// </summary>
 /// <remarks>
-/// Инициализирует экземпляр класса <see cref="OrderController"/>
+/// Инициализирует экземпляр класса <see cref="OrdersController"/>
 /// </remarks>
 /// <param name="logger">Логгер</param>
-public class OrderController(ILogger<OrderController> logger) : Controller
+public class OrdersController(ILogger<OrdersController> logger) : Controller
 {
     /// <summary>
     /// Логгер
     /// </summary>
-    private readonly ILogger<OrderController> _logger = logger;
+    private readonly ILogger<OrdersController> _logger = logger;
     /// <summary>
     /// HTTP-клиент
     /// </summary>

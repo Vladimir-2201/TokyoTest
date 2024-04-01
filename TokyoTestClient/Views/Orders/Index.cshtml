@@ -6,8 +6,8 @@
 <h1>Заказы</h1>
 
 <div class="m-2">
-    <button class="btn btn-success" onclick="location.href='@Url.RouteUrl(new { controller = "Order", action = "Create"})'">Добавить</button>
-    <button class="btn btn-primary" onclick="location.href='@Url.RouteUrl(new { controller = "Order", action = "Index"})'">Обновить список</button>
+    <a class="btn btn-success" asp-action="Create">Добавить</a>
+    <a class="btn btn-primary" asp-action="Index">Обновить список</a>
 </div>
 
 <table class="table table-hover">
